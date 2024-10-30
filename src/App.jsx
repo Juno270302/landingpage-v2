@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Switch  } from "react-router-dom";
 import Home from "./pages/Home";
 import HelloWorld from "./pages/HelloWorld";
 import Navbar from "./components/Navbar/Navbar";
@@ -10,6 +10,7 @@ import Blog from "./pages/Blog";
 const App = () => {
   return (
     <Router>
+      <Switch>
       <Navbar />
       <div className="">
         <Routes>
@@ -22,6 +23,7 @@ const App = () => {
         </Routes>
       </div>
       <Footer />
+        </Switch>
     </Router>
   );
 };
