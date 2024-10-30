@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "prebuild": "react-snap",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
@@ -17,7 +18,8 @@
     "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0",
     "react-helmet-async": "^2.0.5",
-    "react-router-dom": "^6.27.0"
+    "react-router-dom": "^6.27.0",
+    "react-snap": "^1.23.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
