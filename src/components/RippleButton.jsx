@@ -1,4 +1,5 @@
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const RippleButton = ({ children, className, ...props }) => {
   const [ripples, setRipples] = useState([]);
@@ -7,7 +8,7 @@ const RippleButton = ({ children, className, ...props }) => {
     if (ripples.length > 0) {
       const timeout = setTimeout(() => {
         setRipples([]);
-      }, 600); // Thời gian của hiệu ứng ripple
+      }, 500); // Ripple effect duration
 
       return () => clearTimeout(timeout);
     }
@@ -25,7 +26,7 @@ const RippleButton = ({ children, className, ...props }) => {
     const newRipple = {
       x,
       y,
-      diameter
+      diameter,
     };
 
     setRipples((prevRipples) => [...prevRipples, newRipple]);
@@ -33,14 +34,14 @@ const RippleButton = ({ children, className, ...props }) => {
 
   return (
     <button
-      className={`relative overflow-hidden ${className}`}
+      className={`relative overflow-hidden ${className} hover:bg-[#F5DF77]/80 transition-colors duration-200`}
       onClick={createRipple}
       {...props}
     >
       {ripples.map((ripple, index) => (
         <span
           key={index}
-          className="absolute rounded-full bg-[#F5DF77] opacity-100 animate-ripple"
+          className="absolute rounded-full bg-[#F5DF77] opacity-75 animate-ripple"
           style={{
             width: ripple.diameter,
             height: ripple.diameter,
@@ -49,7 +50,7 @@ const RippleButton = ({ children, className, ...props }) => {
           }}
         ></span>
       ))}
-      {children}
+      <Link to={"/contact"}>{children}</Link>
     </button>
   );
 };
